@@ -1,11 +1,20 @@
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import CategoriesPreview from '../../components/categories-preview/categories-preview.component';
 import Category from '../category/category.component';
+import { fetchCateoriesStart } from '../../store/categories/category.action';
 
 import './shop.style.css';
 
 const Shop = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCateoriesStart());
+    }, []);
 
     return (
         <Routes>
